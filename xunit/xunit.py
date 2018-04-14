@@ -21,17 +21,18 @@ class WasRun(TestCase):
         self.wasSetUp = None
 
     def setUp(self):
+        self.wasRun = None
         self.wasSetUp = 1
 
 
 class TestCaseTest(TestCase):
+    def setUp(self):
+        self.test = WasRun("testMethod")
+
     def testRunning(self):
-        test = WasRun("testMethod")
-        assert not test.wasRun
-        test.run()
-        assert test.wasRun
+        self.test.run()
+        assert self.test.wasRun
 
     def testSetUp(self):
-        test = WasRun("testMethod")
-        test.run()
-        assert test.wasSetUp
+        self.test.run()
+        assert self.test.wasSetUp
