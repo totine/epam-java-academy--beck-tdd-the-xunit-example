@@ -1,7 +1,3 @@
-from xunit.xunit import WasRun
+from xunit.xunit import TestCaseTest
 
-test = WasRun("testMethod")
-print(test.wasRun)
-test.run()
-print(test.wasRun)
-
+TestCaseTest("testRunning").run()
